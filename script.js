@@ -156,6 +156,8 @@ function dltTrs(id){
     noDataA();
     noDataI2();
     noDataR2(); 
+    noDataI();
+    noDataR(); 
 }
 
 //       no data
