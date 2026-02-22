@@ -21,19 +21,19 @@
     <div class="grid w-full md:grid-cols-3 gap-2.5 p-2"> <!-- count all-->
         
         <!-- count Total -->
-        <div class="card bg-base-300 rounded-box grid h-20 place-items-start text-xl p-2 bg-amber-50">Total
+        <div class="card bg-base-300 rounded-box grid h-20 place-items-start text-xl p-2 bg-amber-100">Total
             <span id="h-all-job-count1" class="font-bold text-2xl">0</span>
             
         </div>
         
         <!-- count Interview -->
-        <div class="card  rounded-box grid h-20 place-items-start text-xl p-2 bg-amber-50">Interview
+        <div class="card  rounded-box grid h-20 place-items-start text-xl p-2 bg-amber-100">Interview
             <span id="h-interview-job-count1" class="text-emerald-600 font-bold text-2xl">0</span>
             
         </div>
         
         <!-- count Rejected -->
-        <div class="card  rounded-box grid h-20 place-items-start text-xl p-2 bg-amber-50">Rejected
+        <div class="card  rounded-box grid h-20 place-items-start text-xl p-2 bg-amber-100">Rejected
             <span id="h-rejected-job-count1" class="text-red-500 font-bold text-2xl">0</span>
             
         </div>
@@ -65,7 +65,8 @@
     
     <div id="all-job" class="all-job-pst mt-1"> <!-- all job or ttl job-->
         
-        <div id="post1" class=" allPsts bg-amber-50 h-[300px] md:h-72  min-w-11/12 rounded-box mt-3  p-4 overflow-hidden"> <!-- post 1-->
+        <!-- post 1-->
+        <div id="post1" class="allPsts bg-amber-100 h-[300px] md:h-72  min-w-11/12 rounded-box mt-3  p-4 overflow-hidden">
 
             <div class="flex place-content-between"> <!-- h1 & btn div --> 
                 <h1 class= "text-[18px] text-blue-900 font-bold ">Mobile First Corp</h1>
@@ -93,8 +94,10 @@
             </div>
             
         </div><!-- post 1 div end-->
-                 <!--| -->
-        <div id="post2" class="allPsts bg-amber-50 h-[300px] md:h-72  min-w-11/12 rounded-box mt-3  p-4 overflow-hidden"> <!-- post 2-->
+
+
+        <!-- post 2-->
+        <div id="post2" class="allPsts bg-amber-100 h-[300px] md:h-72  min-w-11/12 rounded-box mt-3  p-4 overflow-hidden">
 
             <div class="flex place-content-between"> <!-- h1 & btn div --> 
                 <h1 class= "text-[18px] text-blue-900 font-bold ">WebFlow Agency</h1>
@@ -123,13 +126,45 @@
             </div>
             
         </div><!-- post 2 div end-->
+
+
+        <!-- post 3-->
+        <div id="post3" class="allPsts bg-amber-100 h-[300px] md:h-72  min-w-11/12 rounded-box mt-3  p-4 overflow-hidden">
+
+            <div class="flex place-content-between"> <!-- h1 & btn div --> 
+                <h1 class= "text-[18px] text-blue-900 font-bold ">DataViz Solutions</h1>
+
+                <button onclick="dltTrs('post3')" class=" h-10 w-[38px] btn rounded-full">
+                <i class="fa-solid fa-trash-can"></i></button> <!-- trash --> 
+
+            </div>
+
+            <p class= " text-blue-950 mt-3">Data Visualization Specialist</p>
+            <p class= " text-blue-950">Boston, MA • Full-time • $125,000 - $165,000</p>
+            
+            <div class="stts"> <!-- status btn    | -->
+                <button id="normal-3" class="btn normal3 bg-blue-200 border border-black rounded-box  my-3 text-center "> NOT APPLIED </button>
+                <button id="green-3" class="btn green3 text-emerald-600 my-3 border border-emerald-600 hidden">INTERVIEW</button>
+                <button id="red-3" class="btn text-red-500 border  my-3 border-red-500 hidden">REJECTED</button>
+            </div>
+            
+            <p class= " text-blue-950"> Transform complex data into compelling visualizations. Required skills: D3.js, React, and strong analytical thinking. </p>
+
+            <div class="flex gap-2.5 mt-1.5">  <!-- 'int-btn',  -->
+                <button onclick="pstIBtnClk('int-btn3',3)"  id="int-btn3" class="btn text-emerald-600 border border-emerald-600">INTERVIEW</button>      <!-- btn -->
+
+                <button onclick="pstRBtnClk('rjct-btn3',3)" id="rjct-btn3" class="btn text-red-500 border border-red-500">REJECTED</button> <!-- btn -->
+
+            </div>
+            
+        </div><!-- post 3 div end-->
         
     </div><!-- all job or ttl job end-->
 
 
 
     <div id="no-data" class="mt-3  p-4 hidden"> <!--  no data -->
-        <div class="card bg-amber-50 min-w-11/12 h-[400px] pt-[50px]">
+        <div class="card bg-amber-100 min-w-11/12 h-[400px] pt-[50px]">
 
             <figure class="px-10 pt-10">
                 <img src="./img/jobs.png" alt="jobs.png" class="rounded-xl" />
