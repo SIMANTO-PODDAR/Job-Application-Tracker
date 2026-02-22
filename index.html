@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application Tracker</title>
+
+    <!-- daisy UI -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body class="max-w-[1600px] mx-auto "> 
+    
+<header> 
+    <h1 class="text-3xl text-blue-900 font-bold mt-[50px] p-2">Job Application Tracker</h1>
+    
+    <div class="grid w-full md:grid-cols-3 gap-2.5 p-2"> <!-- count all-->
+        
+        <!-- count Total -->
+        <div class="card bg-base-300 rounded-box grid h-20 place-items-start text-xl p-2 bg-amber-50">Total
+            <span id="h-all-job-count1" class="font-bold text-2xl">0</span>
+            
+        </div>
+        
+        <!-- count Interview -->
+        <div class="card  rounded-box grid h-20 place-items-start text-xl p-2 bg-amber-50">Interview
+            <span id="h-interview-job-count1" class="text-emerald-600 font-bold text-2xl">0</span>
+            
+        </div>
+        
+        <!-- count Rejected -->
+        <div class="card  rounded-box grid h-20 place-items-start text-xl p-2 bg-amber-50">Rejected
+            <span id="h-rejected-job-count1" class="text-red-500 font-bold text-2xl">0</span>
+            
+        </div>
+        
+    </div>
+<div class="divider mt-1"></div> <!-- line -->
+
+ <div class="flex place-content-between" >  <!-- Total ttel -->
+
+    <h1 class= "text-xl text-blue-900 font-bold  p-2">Available Jobs</h1>
+    
+    <p class= "text-xl p-2"><span id="h-all-job-count2" class="font-bold">0</span> jobs</p> <!-- count Total 2 -->
+    
+</div>
+
+</header>
+
+<main class="p-2 mb-5 "> <!-- all job & btn-->
+    
+    <div class="tog-btn-div"> <!-- all ctrl btn -->
+        <button onclick="btnColor('tgl-all')"     id="tgl-all"     class="btn h-8 w-20 bg-blue-500 text-amber-50">All</button>
+        <button onclick="btnColor('tgl-itrvew')"  id="tgl-itrvew"  class="btn h-8 w-20">Interview</button>
+        <button onclick="btnColor('tgl-rjkt')"    id="tgl-rjkt"    class="btn h-8 w-20">Rejected</button>
+    </div>
+    
+    <div id="all-job" class="all-job-pst mt-1"> <!-- all job or ttl job-->
+        
+        <div id="post1" class=" allPsts bg-amber-50 h-[300px] md:h-72  min-w-11/12 rounded-box mt-3  p-4 overflow-hidden"> <!-- post 1-->
+
+            <div class="flex place-content-between"> <!-- h1 & btn div --> 
+                <h1 class= "text-[18px] text-blue-900 font-bold ">Mobile First Corp</h1>
+
+                <button  onclick="dltTrs('post1')"  class=" h-10 w-[38px] btn rounded-full">
+                    <i class="fa-solid fa-trash-can"></i></button> <!-- trash 2 --> 
+            </div>
+
+            <p class= " text-blue-950 mt-3">React Native Developer</p>
+            <p class= " text-blue-950">Remote • Full-time • $130,000 - $175,000 </p>
+            
+            <div class="stts"> <!-- status btn -->
+                <button id="normal-1" class="btn normal2 bg-blue-200 border border-black rounded-box  my-3 text-center "> NOT APPLIED </button>
+                <button id="green-1" class="btn green2 text-emerald-600 my-3 border border-emerald-600 hidden">INTERVIEW</button>
+                <button id="red-1" class="btn text-red-500 border  my-3 border-red-500 hidden">REJECTED</button>
+            </div>
+            
+            <p class= " text-blue-950"> Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide. </p>
+
+            <div class="flex gap-2.5 mt-1.5">
+                <button onclick="pstIBtnClk('int-btn1',1)"  id="int-btn1" class="btn text-emerald-600 border border-emerald-600">INTERVIEW</button>       <!-- btn 1 -->
+
+                <button onclick="pstRBtnClk('rjct-btn1',1)" id="rjct-btn1" class="btn text-red-500 border border-red-500">REJECTED</button>       <!-- btn 1 -->
+
+            </div>
+            
+        </div><!-- post 1 div end-->
+        
+        <div id="post2" class="allPsts bg-amber-50 h-[300px] md:h-72  min-w-11/12 rounded-box mt-3  p-4 overflow-hidden"> <!-- post 2-->
+
+            <div class="flex place-content-between"> <!-- h1 & btn div --> 
+                <h1 class= "text-[18px] text-blue-900 font-bold ">WebFlow Agency</h1>
+
+                <button onclick="dltTrs('post2')" class=" h-10 w-[38px] btn rounded-full">
+                    <i class="fa-solid fa-trash-can"></i></button> <!-- trash 2 --> 
+
+            </div>
+
+            <p class= " text-blue-950 mt-3">Web Designer & Developer</p>
+            <p class= " text-blue-950">Los Angeles, CA • Part-time • $80,000 - $120,000 </p>
+            
+            <div class="stts"> <!-- status btn -->
+                <button id="normal-2" class="btn normal2 bg-blue-200 border border-black rounded-box  my-3 text-center "> NOT APPLIED </button>
+                <button id="green-2" class="btn green2 text-emerald-600 my-3 border border-emerald-600 hidden">INTERVIEW</button>
+                <button id="red-2" class="btn text-red-500 border  my-3 border-red-500 hidden">REJECTED</button>
+            </div>
+            
+            <p class= " text-blue-950"> Create stunning web experiences for high-profile clients. Must have portfolio and experience with modern web design trends.</p>
+
+            <div class="flex gap-2.5 mt-1.5">
+                <button onclick="pstIBtnClk('int-btn2',2)"  id="int-btn2" class="btn text-emerald-600 border border-emerald-600">INTERVIEW</button>       <!-- btn 2 -->
+
+                <button onclick="pstRBtnClk('rjct-btn2',2)" id="rjct-btn2" class="btn text-red-500 border border-red-500">REJECTED</button>       <!-- btn 2 -->
+
+            </div>
+            
+        </div><!-- post 2 div end-->
+        
+    </div><!-- all job or ttl job end-->
+
+</main>
+
+  <script>
+
+
+    
+
+
+
+  </script>
+
+<!-- js link -->
+<script src="./script.js"></script>
+</body>
+</html>
