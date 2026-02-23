@@ -212,6 +212,7 @@ function noDataR2(N){
         noData.classList.add('hidden')
     }
 }
+
 function noDataI2(N){
     if(N == 0 && allJob.children.length !== 0){
         noData.classList.remove('hidden')
