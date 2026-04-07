@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,366 +11,455 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
     <!-- font-awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 </head>
-<body class="max-w-[1600px] mx-auto "> 
-    
-<header class="sm:sticky sm:top-0 bg-white pb-1"> 
-    <h1 class="text-3xl text-blue-900 font-bold mt-[50px] p-2">Job Application Tracker</h1>
-    
-    <div class="grid w-full sm:grid-cols-3 gap-2.5 p-2"> <!-- count all-->
-        
-        <!-- count Total -->
-        <div class="card bg-base-300 rounded-box grid h-20 place-items-start text-xl p-2 bg-amber-100">Total
-            <span id="h-all-job-count1" class="font-bold text-2xl">0</span>
-            
+
+<body class="max-w-[1600px] mx-auto ">
+
+    <header class="sm:sticky sm:top-0 bg-white pb-1">
+        <h1 class="text-3xl text-blue-900 font-bold mt-[50px] p-2">Job Application Tracker</h1>
+
+        <div class="grid w-full sm:grid-cols-3 gap-2.5 p-2"> <!-- count all-->
+
+            <!-- count Total -->
+            <div class="card bg-base-300 rounded-box grid h-20 place-items-start text-xl p-2 bg-amber-100">Total
+                <span id="h-all-job-count1" class="font-bold text-2xl">0</span>
+
+            </div>
+
+            <!-- count Interview -->
+            <div class="card  rounded-box grid h-20 place-items-start text-xl p-2 bg-amber-100">Interview
+                <span id="h-interview-job-count1" class="text-emerald-600 font-bold text-2xl">0</span>
+
+            </div>
+
+            <!-- count Rejected -->
+            <div class="card  rounded-box grid h-20 place-items-start text-xl p-2 bg-amber-100">Rejected
+                <span id="h-rejected-job-count1" class="text-red-500 font-bold text-2xl">0</span>
+
+            </div>
+
         </div>
-        
-        <!-- count Interview -->
-        <div class="card  rounded-box grid h-20 place-items-start text-xl p-2 bg-amber-100">Interview
-            <span id="h-interview-job-count1" class="text-emerald-600 font-bold text-2xl">0</span>
-            
-        </div>
-        
-        <!-- count Rejected -->
-        <div class="card  rounded-box grid h-20 place-items-start text-xl p-2 bg-amber-100">Rejected
-            <span id="h-rejected-job-count1" class="text-red-500 font-bold text-2xl">0</span>
-            
-        </div>
-        
-    </div>
- <div class="divider mt-1"></div> <!-- line -->
+        <div class="divider mt-1"></div> <!-- line -->
 
-    <div class="flex place-content-between" >  <!-- Total ttel -->
-    
-        <h1 class= "text-xl text-blue-900 font-bold  p-2">Available Jobs</h1>
-        
-        <p class= "text-xl p-2">
-         <span id="y-of-total" class="hidden">
-            <span id="int-job-count-of" class="font-bold">1</span> <span>of</span> 
-         </span>
-            <span id="h-all-job-count2" class="font-bold">0</span> jobs</p> <!-- count Total 2 -->
-        
-    </div>
-    
-    <div class="tog-btn-div ml-1.5"> <!-- all ctrl btn -->
-        <button onclick="btnColor('tgl-all')"     id="tgl-all"     class="btn h-8 w-20 bg-blue-500 text-amber-50">All</button>
-        <button onclick="btnColor('tgl-itrvew')"  id="tgl-itrvew"  class="btn h-8 w-20">Interview</button>
-        <button onclick="btnColor('tgl-rjkt')"    id="tgl-rjkt"    class="btn h-8 w-20">Rejected</button>
-    </div>
+        <div class="flex place-content-between"> <!-- Total ttel -->
 
-</header>
+            <h1 class="text-xl text-blue-900 font-bold  p-2">Available Jobs</h1>
 
-<main class="p-2 mb-5 "> <!-- all job & btn-->
-    
-    
-    <div id="all-job" class="all-job-pst mt-1"> <!-- all job or ttl job-->
-        
-        <!-- post 1-->
-        <div id="post1" class="allPsts bg-amber-100 h-[300px] md:h-72  min-w-11/12 rounded-box mt-3  p-4 overflow-hidden">
+            <p class="text-xl p-2">
+                <span id="y-of-total" class="hidden">
+                    <span id="int-job-count-of" class="font-bold">1</span> <span>of</span>
+                </span>
+                <span id="h-all-job-count2" class="font-bold">0</span> jobs
+            </p> <!-- count Total 2 -->
 
-            <div class="flex place-content-between"> <!-- h1 & btn div -->
-                <div>
-                    <h1 class= "text-[18px] text-blue-900 font-bold ">Mobile First Corp</h1>
-                    <p class= " text-blue-950 ">React Native Developer</p>
-                </div> 
-
-                <button  onclick="dltTrs('post1')"  class=" h-10 w-[38px] btn rounded-full">
-                    <i class="fa-solid fa-trash-can"></i></button> <!-- trash 2 --> 
-            </div>
-
-            <p class= " text-blue-950  mt-4">Remote • Full-time • $130,000 - $175,000 </p>
-            
-            <div class="stts"> <!-- status btn -->
-                <button id="normal-1" class="btn normal2 bg-blue-200 border border-black rounded-box  my-2 text-center "> NOT APPLIED </button>
-                <button id="green-1" class="btn green2 text-emerald-600 my-2 border border-emerald-600 hidden">INTERVIEW</button>
-                <button id="red-1" class="btn text-red-500 border  my-2 border-red-500 hidden">REJECTED</button>
-            </div>
-            
-            <p class= " text-blue-950"> Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide. </p>
-
-            <div class="flex gap-2.5 mt-3">
-                <button onclick="pstIBtnClk('int-btn1',1)"  id="int-btn1" class="btn hover:bg-emerald-200 text-emerald-600 border border-emerald-600">INTERVIEW</button>       <!-- btn 1 -->
-
-                <button onclick="pstRBtnClk('rjct-btn1',1)" id="rjct-btn1" class="btn hover:bg-red-200 text-red-500 border border-red-500">REJECTED</button>       <!-- btn 1 -->
-
-            </div>
-            
-        </div><!-- post 1 div end-->
-
-
-        <!-- post 2-->
-        <div id="post2" class="allPsts bg-amber-100 h-[300px] md:h-72  min-w-11/12 rounded-box mt-3  p-4 overflow-hidden">
-
-            <div class="flex place-content-between"> <!-- h1 & btn div --> 
-                <div>
-                    <h1 class= "text-[18px] text-blue-900 font-bold ">WebFlow Agency</h1>
-                    <p class= " text-blue-950">Web Designer & Developer</p>
-                </div>
-
-                <button onclick="dltTrs('post2')" class=" h-10 w-[38px] btn rounded-full">
-                    <i class="fa-solid fa-trash-can"></i></button> <!-- trash 2 --> 
-
-            </div>
-
-            <p class= " text-blue-950  mt-4">Los Angeles, CA • Part-time • $80,000 - $120,000 </p>
-            
-            <div class="stts"> <!-- status btn -->
-                <button id="normal-2" class="btn normal2 bg-blue-200 border border-black rounded-box  my-2 text-center "> NOT APPLIED </button>
-                <button id="green-2" class="btn green2 text-emerald-600 my-2 border border-emerald-600 hidden">INTERVIEW</button>
-                <button id="red-2" class="btn text-red-500 border  my-2 border-red-500 hidden">REJECTED</button>
-            </div>
-            
-            <p class= " text-blue-950"> Create stunning web experiences for high-profile clients. Must have portfolio and experience with modern web design trends.</p>
-
-            <div class="flex gap-2.5 mt-3">  <!-- 'int-btn2',2  -->
-                <button onclick="pstIBtnClk('int-btn2',2)"  id="int-btn2" class="btn hover:bg-emerald-200 text-emerald-600 border border-emerald-600">INTERVIEW</button>       <!-- btn 2 -->
-
-                <button onclick="pstRBtnClk('rjct-btn2',2)" id="rjct-btn2" class="btn hover:bg-red-200 text-red-500 border border-red-500">REJECTED</button>       <!-- btn 2 -->
-
-            </div>
-            
-        </div><!-- post 2 div end-->
-
-
-        <!-- post 3-->
-        <div id="post3" class="allPsts bg-amber-100 h-[300px] md:h-72  min-w-11/12 rounded-box mt-3  p-4 overflow-hidden">
-
-            <div class="flex place-content-between"> <!-- h1 & btn div -->
-                <div>
-                    <h1 class= "text-[18px] text-blue-900 font-bold ">DataViz Solutions</h1>
-                    <p class= " text-blue-950">Data Visualization Specialist</p>
-
-                </div> 
-
-                <button onclick="dltTrs('post3')" class=" h-10 w-[38px] btn rounded-full">
-                <i class="fa-solid fa-trash-can"></i></button> <!-- trash --> 
-
-            </div>
-
-            <p class= " text-blue-950 mt-4">Boston, MA • Full-time • $125,000 - $165,000</p>
-            
-            <div class="stts"> <!-- status btn    | -->
-                <button id="normal-3" class="btn normal3 bg-blue-200 border border-black rounded-box  my-2 text-center "> NOT APPLIED </button>
-                <button id="green-3" class="btn green3 text-emerald-600 my-2 border border-emerald-600 hidden">INTERVIEW</button>
-                <button id="red-3" class="btn text-red-500 border  my-2 border-red-500 hidden">REJECTED</button>
-            </div>
-            
-            <p class= " text-blue-950"> Transform complex data into compelling visualizations. Required skills: D3.js, React, and strong analytical thinking. </p>
-
-            <div class="flex gap-2.5 mt-3">  <!-- 'int-btn',  -->
-                <button onclick="pstIBtnClk('int-btn3',3)"  id="int-btn3" class="btn hover:bg-emerald-200 text-emerald-600 border border-emerald-600">INTERVIEW</button>      <!-- btn -->
-
-                <button onclick="pstRBtnClk('rjct-btn3',3)" id="rjct-btn3" class="btn hover:bg-red-200 text-red-500 border border-red-500">REJECTED</button> <!-- btn -->
-
-            </div>
-            
-        </div><!-- post 3 div end-->
-
-
-
-        <!-- post 4-->
-        <div id="post4" class="allPsts bg-amber-100 h-[300px] md:h-72  min-w-11/12 rounded-box mt-3  p-4 overflow-hidden">
-
-            <div class="flex place-content-between"> <!-- h1 & btn div -->
-                <div>
-                    <h1 class= "text-[18px] text-blue-900 font-bold ">CloudFirst Inc</h1>
-                    <p class= " text-blue-950 ">Backend Developer</p>
-                </div>
-
-                <button onclick="dltTrs('post4')" class=" h-10 w-[38px] btn rounded-full">
-                <i class="fa-solid fa-trash-can"></i></button> <!-- trash -->
-            </div>
-
-            <p class= " text-blue-950 mt-4">Seattle, WA • Full-time • $140,000 - $190,000</p>
-            
-            <div class="stts"> <!-- status btn    | -->
-                <button id="normal-4" class="btn normal4 bg-blue-200 border border-black rounded-box  my-2 text-center ">
-                NOT APPLIED </button>
-                
-                <button id="green-4" class="btn green4 text-emerald-600 my-2 border border-emerald-600 hidden">INTERVIEW</button>
-                <button id="red-4" class="btn text-red-500 border  my-2 border-red-500 hidden">REJECTED</button>
-            </div>
-            
-            <p class= " text-blue-950"> Design and maintain scalable backend systems using Python and AWS. Work with modern DevOps practices and cloud infrastructure. </p>
-
-            <div class="flex gap-2.5 mt-3">  <!-- 'int-btn',  -->
-                <button onclick="pstIBtnClk('int-btn4',4)"  id="int-btn4" class="btn hover:bg-emerald-200 text-emerald-600 border border-emerald-600">INTERVIEW</button>      <!-- btn -->
-
-                <button onclick="pstRBtnClk('rjct-btn4',4)" id="rjct-btn4" class="btn hover:bg-red-200 text-red-500 border border-red-500">REJECTED</button> <!-- btn -->
-
-            </div>
-            
-        </div><!-- post 4 div end-->
-
-
-
-        <!-- post 5-->
-        <div id="post5" class="allPsts bg-amber-100 h-[300px] md:h-72  min-w-11/12 rounded-box mt-3  p-4 overflow-hidden">
-
-            <div class="flex place-content-between"> <!-- h1 & btn div -->
-                <div>
-                    <h1 class= "text-[18px] text-blue-900 font-bold ">Innovation Labs</h1>
-                    <p class= " text-blue-950 ">UI/UX Engineer</p>
-                </div>
-
-                <button onclick="dltTrs('post5')" class=" h-10 w-[38px] btn rounded-full">
-                <i class="fa-solid fa-trash-can"></i></button> <!-- trash -->
-            </div>
-
-            <p class= " text-blue-950 mt-4">Austin, TX • Full-time • $110,000 - $150,000</p>
-            
-            <div class="stts"> <!-- status btn    | -->
-                <button id="normal-5" class="btn normal5 bg-blue-200 border border-black rounded-box  my-2 text-center ">
-                NOT APPLIED </button>
-                
-                <button id="green-5" class="btn green5 text-emerald-600 my-2 border border-emerald-600 hidden">INTERVIEW</button>
-                <button id="red-5" class="btn text-red-500 border  my-2 border-red-500 hidden">REJECTED</button>
-            </div>
-            
-            <p class= " text-blue-950"> Create beautiful and functional user interfaces for our suite of products. Strong design skills and frontend development expertise required. </p>
-
-            <div class="flex gap-2.5 mt-3">  <!-- 'int-btn',  -->
-                <button onclick="pstIBtnClk('int-btn5',5)"  id="int-btn5" class="btn hover:bg-emerald-200 text-emerald-600 border border-emerald-600">INTERVIEW</button>      <!-- btn -->
-
-                <button onclick="pstRBtnClk('rjct-btn5',5)" id="rjct-btn5" class="btn hover:bg-red-200 text-red-500 border border-red-500">REJECTED</button> <!-- btn -->
-
-            </div>
-            
-        </div><!-- post 5 div end-->
-
-
-
-        <!-- post 6-->
-        <div id="post6" class="allPsts bg-amber-100 h-[300px] md:h-72  min-w-11/12 rounded-box mt-3  p-4 overflow-hidden">
-
-            <div class="flex place-content-between"> <!-- h1 & btn div -->
-                <div>
-                    <h1 class= "text-[18px] text-blue-900 font-bold ">MegaCorp Solutions</h1>
-                    <p class= " text-blue-950 ">JavaScript Developer</p>
-                </div>
-
-                <button onclick="dltTrs('post6')" class=" h-10 w-[38px] btn rounded-full">
-                <i class="fa-solid fa-trash-can"></i></button> <!-- trash -->
-            </div>
-
-            <p class= " text-blue-950 mt-4">New York, NY • Full-time • $130,000 - $170,00</p>
-            
-            <div class="stts"> <!-- status btn    | -->
-                <button id="normal-6" class="btn normal6 bg-blue-200 border border-black rounded-box  my-2 text-center ">
-                NOT APPLIED </button>
-                
-                <button id="green-6" class="btn green6 text-emerald-600 my-2 border border-emerald-600 hidden">INTERVIEW</button>
-                <button id="red-6" class="btn text-red-500 border  my-2 border-red-500 hidden">REJECTED</button>
-            </div>
-            
-            <p class= " text-blue-950"> Build enterprise applications with JavaScript and modern frameworks. We offer competitive compensation, health insurance, and professional development opportunities. </p>
-
-            <div class="flex gap-2.5 mt-3">  <!-- 'int-btn',  -->
-                <button onclick="pstIBtnClk('int-btn6',6)"  id="int-btn6" class="btn hover:bg-emerald-200 text-emerald-600 border border-emerald-600">INTERVIEW</button>      <!-- btn -->
-
-                <button onclick="pstRBtnClk('rjct-btn6',6)" id="rjct-btn6" class="btn hover:bg-red-200 text-red-500 border border-red-500">REJECTED</button> <!-- btn -->
-
-            </div>
-            
-        </div><!-- post 6 div end-->
-
-
-        
-        <!-- post 7-->
-        <div id="post7" class="allPsts bg-amber-100 h-[300px] md:h-72  min-w-11/12 rounded-box mt-3  p-4 overflow-hidden">
-
-            <div class="flex place-content-between"> <!-- h1 & btn div -->
-                <div>
-                    <h1 class= "text-[18px] text-blue-900 font-bold ">StartupXYZ</h1>
-                    <p class= " text-blue-950 ">Full Stack Engineer</p>
-                </div>
-
-                <button onclick="dltTrs('post7')" class=" h-10 w-[38px] btn rounded-full">
-                <i class="fa-solid fa-trash-can"></i></button> <!-- trash -->
-            </div>
-
-            <p class= " text-blue-950 mt-4">Remote • Full-time • $120,000 - $160,000</p>
-            
-            <div class="stts"> <!-- status btn    | -->
-                <button id="normal-7" class="btn normal7 bg-blue-200 border border-black rounded-box  my-2 text-center ">
-                NOT APPLIED </button>
-                
-                <button id="green-7" class="btn green7 text-emerald-600 my-2 border border-emerald-600 hidden">INTERVIEW</button>
-                <button id="red-7" class="btn text-red-500 border  my-2 border-red-500 hidden">REJECTED</button>
-            </div>
-            
-            <p class= " text-blue-950"> Join our fast-growing startup and work on our core platform. Experience with Node.js and React required. Great benefits and equity package included. </p>
-
-            <div class="flex gap-2.5 mt-3">  <!-- 'int-btn',  -->
-                <button onclick="pstIBtnClk('int-btn7',7)"  id="int-btn7" class="btn hover:bg-emerald-200 text-emerald-600 border border-emerald-600">INTERVIEW</button>      <!-- btn -->
-
-                <button onclick="pstRBtnClk('rjct-btn7',7)" id="rjct-btn7" class="btn hover:bg-red-200 text-red-500 border border-red-500">REJECTED</button> <!-- btn -->
-
-            </div>
-            
-        </div><!-- post 7 div end-->
-
-
-
-        <!-- post 8-->
-        <div id="post8" class="allPsts bg-amber-100 h-[300px] md:h-72  min-w-11/12 rounded-box mt-3  p-4 overflow-hidden">
-
-            <div class="flex place-content-between"> <!-- h1 & btn div -->
-                <div>
-                    <h1 class= "text-[18px] text-blue-900 font-bold ">TechCorp Industries</h1>
-                    <p class= " text-blue-950 ">Senior Frontend Developer</p>
-                </div>
-
-                <button onclick="dltTrs('post8')" class=" h-10 w-[38px] btn rounded-full">
-                <i class="fa-solid fa-trash-can"></i></button> <!-- trash -->
-            </div>
-
-            <p class= " text-blue-950 mt-4">San Francisco, CA • Full-time • $130,000 - $175,000</p>
-            
-            <div class="stts"> <!-- status btn    | -->
-                <button id="normal-8" class="btn normal8 bg-blue-200 border border-black rounded-box  my-2 text-center ">
-                NOT APPLIED </button>
-                
-                <button id="green-8" class="btn green8 text-emerald-600 my-2 border border-emerald-600 hidden">INTERVIEW</button>
-                <button id="red-8" class="btn text-red-500 border  my-2 border-red-500 hidden">REJECTED</button>
-            </div>
-            
-            <p class= " text-blue-950"> We are looking for an experienced Frontend Developer to build scalable web applications using React and TypeScript. You will work with a talented team on cutting-edge projects. </p>
-
-            <div class="flex gap-2.5 mt-3">  <!-- 'int-btn',  -->
-                <button onclick="pstIBtnClk('int-btn8',8)"  id="int-btn8" class="btn hover:bg-emerald-200 text-emerald-600 border border-emerald-600">INTERVIEW</button>      <!-- btn -->
-
-                <button onclick="pstRBtnClk('rjct-btn8',8)" id="rjct-btn8" class="btn hover:bg-red-200 text-red-500 border border-red-500">REJECTED</button> <!-- btn -->
-
-            </div>
-            
-        </div><!-- post 8 div end-->
-
-
-    </div><!-- all job or ttl job end-->
-
-
-
-    <div id="no-data" class="mt-3  p-4 hidden"> <!--  no data -->
-        <div class="card bg-amber-100 min-w-11/12 h-[400px] pt-[50px]">
-
-            <figure class="px-10 pt-10">
-                <img src="./img/jobs.png" alt="jobs.png" class="rounded-xl" />
-            </figure>
-
-            <div class="card-body items-center text-center">
-                <h2 class= "card-title text-xl text-blue-900 font-bold ">No jobs available</h2>
-                <p class= " text-blue-950 text-[15px]" > Check back soon for new job opportunities</p>
-            </div>
         </div>
 
-    </div>
+        <div class="tog-btn-div ml-1.5"> <!-- all ctrl btn -->
+            <button onclick="btnColor('tgl-all')" id="tgl-all"
+                class="btn h-8 w-20 bg-blue-500 text-amber-50">All</button>
+            <button onclick="btnColor('tgl-itrvew')" id="tgl-itrvew" class="btn h-8 w-20">Interview</button>
+            <button onclick="btnColor('tgl-rjkt')" id="tgl-rjkt" class="btn h-8 w-20">Rejected</button>
+        </div>
 
-</main>
+    </header>
 
- <!-- js link -->
-<script src="./script.js"></script>
+    <main class="p-2 mb-5 "> <!-- all job & btn-->
+
+
+        <div id="all-job" class="all-job-pst mt-1"> <!-- all job or ttl job-->
+
+            <!-- post 1-->
+            <div id="post1"
+                class="allPsts bg-amber-100 h-[300px] md:h-72  min-w-11/12 rounded-box mt-3  p-4 overflow-hidden">
+
+                <div class="flex place-content-between"> <!-- h1 & btn div -->
+                    <div>
+                        <h1 class="text-[18px] text-blue-900 font-bold ">Mobile First Corp</h1>
+                        <p class=" text-blue-950 ">React Native Developer</p>
+                    </div>
+
+                    <button onclick="dltTrs('post1')" class=" h-10 w-[38px] btn rounded-full">
+                        <i class="fa-solid fa-trash-can"></i></button> <!-- trash 2 -->
+                </div>
+
+                <p class=" text-blue-950  mt-4">Remote • Full-time • $130,000 - $175,000 </p>
+
+                <div class="stts"> <!-- status btn -->
+                    <button id="normal-1"
+                        class="btn normal2 bg-blue-200 border border-black rounded-box  my-2 text-center "> NOT APPLIED
+                    </button>
+                    <button id="green-1"
+                        class="btn green2 text-emerald-600 my-2 border border-emerald-600 hidden">INTERVIEW</button>
+                    <button id="red-1" class="btn text-red-500 border  my-2 border-red-500 hidden">REJECTED</button>
+                </div>
+
+                <p class=" text-blue-950 line-clamp-2"> Build cross-platform mobile applications using React Native.
+                    Work on products
+                    used by millions of users worldwide. </p>
+
+                <div class="flex gap-2.5 mt-3">
+                    <button onclick="pstIBtnClk('int-btn1',1)" id="int-btn1"
+                        class="btn hover:bg-emerald-200 text-emerald-600 border border-emerald-600">INTERVIEW</button>
+                    <!-- btn 1 -->
+
+                    <button onclick="pstRBtnClk('rjct-btn1',1)" id="rjct-btn1"
+                        class="btn hover:bg-red-200 text-red-500 border border-red-500">REJECTED</button> <!-- btn 1 -->
+
+                </div>
+
+            </div><!-- post 1 div end-->
+
+
+            <!-- post 2-->
+            <div id="post2"
+                class="allPsts bg-amber-100 h-[300px] md:h-72  min-w-11/12 rounded-box mt-3  p-4 overflow-hidden">
+
+                <div class="flex place-content-between"> <!-- h1 & btn div -->
+                    <div>
+                        <h1 class="text-[18px] text-blue-900 font-bold ">WebFlow Agency</h1>
+                        <p class=" text-blue-950">Web Designer & Developer</p>
+                    </div>
+
+                    <button onclick="dltTrs('post2')" class=" h-10 w-[38px] btn rounded-full">
+                        <i class="fa-solid fa-trash-can"></i></button> <!-- trash 2 -->
+
+                </div>
+
+                <p class=" text-blue-950  mt-4">Los Angeles, CA • Part-time • $80,000 - $120,000 </p>
+
+                <div class="stts"> <!-- status btn -->
+                    <button id="normal-2"
+                        class="btn normal2 bg-blue-200 border border-black rounded-box  my-2 text-center "> NOT APPLIED
+                    </button>
+                    <button id="green-2"
+                        class="btn green2 text-emerald-600 my-2 border border-emerald-600 hidden">INTERVIEW</button>
+                    <button id="red-2" class="btn text-red-500 border  my-2 border-red-500 hidden">REJECTED</button>
+                </div>
+
+                <p class=" text-blue-950 line-clamp-2"> Create stunning web experiences for high-profile clients. Must
+                    have portfolio
+                    and experience with modern web design trends.</p>
+
+                <div class="flex gap-2.5 mt-3"> <!-- 'int-btn2',2  -->
+                    <button onclick="pstIBtnClk('int-btn2',2)" id="int-btn2"
+                        class="btn hover:bg-emerald-200 text-emerald-600 border border-emerald-600">INTERVIEW</button>
+                    <!-- btn 2 -->
+
+                    <button onclick="pstRBtnClk('rjct-btn2',2)" id="rjct-btn2"
+                        class="btn hover:bg-red-200 text-red-500 border border-red-500">REJECTED</button> <!-- btn 2 -->
+
+                </div>
+
+            </div><!-- post 2 div end-->
+
+
+            <!-- post 3-->
+            <div id="post3"
+                class="allPsts bg-amber-100 h-[300px] md:h-72  min-w-11/12 rounded-box mt-3  p-4 overflow-hidden">
+
+                <div class="flex place-content-between"> <!-- h1 & btn div -->
+                    <div>
+                        <h1 class="text-[18px] text-blue-900 font-bold ">DataViz Solutions</h1>
+                        <p class=" text-blue-950">Data Visualization Specialist</p>
+
+                    </div>
+
+                    <button onclick="dltTrs('post3')" class=" h-10 w-[38px] btn rounded-full">
+                        <i class="fa-solid fa-trash-can"></i></button> <!-- trash -->
+
+                </div>
+
+                <p class=" text-blue-950 mt-4">Boston, MA • Full-time • $125,000 - $165,000</p>
+
+                <div class="stts"> <!-- status btn    | -->
+                    <button id="normal-3"
+                        class="btn normal3 bg-blue-200 border border-black rounded-box  my-2 text-center "> NOT APPLIED
+                    </button>
+                    <button id="green-3"
+                        class="btn green3 text-emerald-600 my-2 border border-emerald-600 hidden">INTERVIEW</button>
+                    <button id="red-3" class="btn text-red-500 border  my-2 border-red-500 hidden">REJECTED</button>
+                </div>
+
+                <p class=" text-blue-950 line-clamp-2"> Transform complex data into compelling visualizations. Required
+                    skills:
+                    D3.js, React, and strong analytical thinking. </p>
+
+                <div class="flex gap-2.5 mt-3"> <!-- 'int-btn',  -->
+                    <button onclick="pstIBtnClk('int-btn3',3)" id="int-btn3"
+                        class="btn hover:bg-emerald-200 text-emerald-600 border border-emerald-600">INTERVIEW</button>
+                    <!-- btn -->
+
+                    <button onclick="pstRBtnClk('rjct-btn3',3)" id="rjct-btn3"
+                        class="btn hover:bg-red-200 text-red-500 border border-red-500">REJECTED</button> <!-- btn -->
+
+                </div>
+
+            </div><!-- post 3 div end-->
+
+
+
+            <!-- post 4-->
+            <div id="post4"
+                class="allPsts bg-amber-100 h-[300px] md:h-72  min-w-11/12 rounded-box mt-3  p-4 overflow-hidden">
+
+                <div class="flex place-content-between"> <!-- h1 & btn div -->
+                    <div>
+                        <h1 class="text-[18px] text-blue-900 font-bold ">CloudFirst Inc</h1>
+                        <p class=" text-blue-950 ">Backend Developer</p>
+                    </div>
+
+                    <button onclick="dltTrs('post4')" class=" h-10 w-[38px] btn rounded-full">
+                        <i class="fa-solid fa-trash-can"></i></button> <!-- trash -->
+                </div>
+
+                <p class=" text-blue-950 mt-4">Seattle, WA • Full-time • $140,000 - $190,000</p>
+
+                <div class="stts"> <!-- status btn    | -->
+                    <button id="normal-4"
+                        class="btn normal4 bg-blue-200 border border-black rounded-box  my-2 text-center ">
+                        NOT APPLIED </button>
+
+                    <button id="green-4"
+                        class="btn green4 text-emerald-600 my-2 border border-emerald-600 hidden">INTERVIEW</button>
+                    <button id="red-4" class="btn text-red-500 border  my-2 border-red-500 hidden">REJECTED</button>
+                </div>
+
+                <p class=" text-blue-950 line-clamp-2"> Design and maintain scalable backend systems using Python and
+                    AWS. Work with
+                    modern DevOps practices and cloud infrastructure. </p>
+
+                <div class="flex gap-2.5 mt-3"> <!-- 'int-btn',  -->
+                    <button onclick="pstIBtnClk('int-btn4',4)" id="int-btn4"
+                        class="btn hover:bg-emerald-200 text-emerald-600 border border-emerald-600">INTERVIEW</button>
+                    <!-- btn -->
+
+                    <button onclick="pstRBtnClk('rjct-btn4',4)" id="rjct-btn4"
+                        class="btn hover:bg-red-200 text-red-500 border border-red-500">REJECTED</button> <!-- btn -->
+
+                </div>
+
+            </div><!-- post 4 div end-->
+
+
+
+            <!-- post 5-->
+            <div id="post5"
+                class="allPsts bg-amber-100 h-[300px] md:h-72  min-w-11/12 rounded-box mt-3  p-4 overflow-hidden">
+
+                <div class="flex place-content-between"> <!-- h1 & btn div -->
+                    <div>
+                        <h1 class="text-[18px] text-blue-900 font-bold ">Innovation Labs</h1>
+                        <p class=" text-blue-950 ">UI/UX Engineer</p>
+                    </div>
+
+                    <button onclick="dltTrs('post5')" class=" h-10 w-[38px] btn rounded-full">
+                        <i class="fa-solid fa-trash-can"></i></button> <!-- trash -->
+                </div>
+
+                <p class=" text-blue-950 mt-4">Austin, TX • Full-time • $110,000 - $150,000</p>
+
+                <div class="stts"> <!-- status btn    | -->
+                    <button id="normal-5"
+                        class="btn normal5 bg-blue-200 border border-black rounded-box  my-2 text-center ">
+                        NOT APPLIED </button>
+
+                    <button id="green-5"
+                        class="btn green5 text-emerald-600 my-2 border border-emerald-600 hidden">INTERVIEW</button>
+                    <button id="red-5" class="btn text-red-500 border  my-2 border-red-500 hidden">REJECTED</button>
+                </div>
+
+                <p class=" text-blue-950 line-clamp-2"> Create beautiful and functional user interfaces for our suite of
+                    products.
+                    Strong design skills and frontend development expertise required. </p>
+
+                <div class="flex gap-2.5 mt-3"> <!-- 'int-btn',  -->
+                    <button onclick="pstIBtnClk('int-btn5',5)" id="int-btn5"
+                        class="btn hover:bg-emerald-200 text-emerald-600 border border-emerald-600">INTERVIEW</button>
+                    <!-- btn -->
+
+                    <button onclick="pstRBtnClk('rjct-btn5',5)" id="rjct-btn5"
+                        class="btn hover:bg-red-200 text-red-500 border border-red-500">REJECTED</button> <!-- btn -->
+
+                </div>
+
+            </div><!-- post 5 div end-->
+
+
+
+            <!-- post 6-->
+            <div id="post6"
+                class="allPsts bg-amber-100 h-[300px] md:h-72  min-w-11/12 rounded-box mt-3  p-4 overflow-hidden">
+
+                <div class="flex place-content-between"> <!-- h1 & btn div -->
+                    <div>
+                        <h1 class="text-[18px] text-blue-900 font-bold ">MegaCorp Solutions</h1>
+                        <p class=" text-blue-950 ">JavaScript Developer</p>
+                    </div>
+
+                    <button onclick="dltTrs('post6')" class=" h-10 w-[38px] btn rounded-full">
+                        <i class="fa-solid fa-trash-can"></i></button> <!-- trash -->
+                </div>
+
+                <p class=" text-blue-950 mt-4">New York, NY • Full-time • $130,000 - $170,00</p>
+
+                <div class="stts"> <!-- status btn    | -->
+                    <button id="normal-6"
+                        class="btn normal6 bg-blue-200 border border-black rounded-box  my-2 text-center ">
+                        NOT APPLIED </button>
+
+                    <button id="green-6"
+                        class="btn green6 text-emerald-600 my-2 border border-emerald-600 hidden">INTERVIEW</button>
+                    <button id="red-6" class="btn text-red-500 border  my-2 border-red-500 hidden">REJECTED</button>
+                </div>
+
+                <p class=" text-blue-950 line-clamp-2"> Build enterprise applications with JavaScript and modern
+                    frameworks. We offer
+                    competitive compensation, health insurance, and professional development opportunities. </p>
+
+                <div class="flex gap-2.5 mt-3"> <!-- 'int-btn',  -->
+                    <button onclick="pstIBtnClk('int-btn6',6)" id="int-btn6"
+                        class="btn hover:bg-emerald-200 text-emerald-600 border border-emerald-600">INTERVIEW</button>
+                    <!-- btn -->
+
+                    <button onclick="pstRBtnClk('rjct-btn6',6)" id="rjct-btn6"
+                        class="btn hover:bg-red-200 text-red-500 border border-red-500">REJECTED</button> <!-- btn -->
+
+                </div>
+
+            </div><!-- post 6 div end-->
+
+
+
+            <!-- post 7-->
+            <div id="post7"
+                class="allPsts bg-amber-100 h-[300px] md:h-72  min-w-11/12 rounded-box mt-3  p-4 overflow-hidden">
+
+                <div class="flex place-content-between"> <!-- h1 & btn div -->
+                    <div>
+                        <h1 class="text-[18px] text-blue-900 font-bold ">StartupXYZ</h1>
+                        <p class=" text-blue-950 ">Full Stack Engineer</p>
+                    </div>
+
+                    <button onclick="dltTrs('post7')" class=" h-10 w-[38px] btn rounded-full">
+                        <i class="fa-solid fa-trash-can"></i></button> <!-- trash -->
+                </div>
+
+                <p class=" text-blue-950 mt-4">Remote • Full-time • $120,000 - $160,000</p>
+
+                <div class="stts"> <!-- status btn    | -->
+                    <button id="normal-7"
+                        class="btn normal7 bg-blue-200 border border-black rounded-box  my-2 text-center ">
+                        NOT APPLIED </button>
+
+                    <button id="green-7"
+                        class="btn green7 text-emerald-600 my-2 border border-emerald-600 hidden">INTERVIEW</button>
+                    <button id="red-7" class="btn text-red-500 border  my-2 border-red-500 hidden">REJECTED</button>
+                </div>
+
+                <p class=" text-blue-950 line-clamp-2"> Join our fast-growing startup and work on our core platform.
+                    Experience with
+                    Node.js and React required. Great benefits and equity package included. </p>
+
+                <div class="flex gap-2.5 mt-3"> <!-- 'int-btn',  -->
+                    <button onclick="pstIBtnClk('int-btn7',7)" id="int-btn7"
+                        class="btn hover:bg-emerald-200 text-emerald-600 border border-emerald-600">INTERVIEW</button>
+                    <!-- btn -->
+
+                    <button onclick="pstRBtnClk('rjct-btn7',7)" id="rjct-btn7"
+                        class="btn hover:bg-red-200 text-red-500 border border-red-500">REJECTED</button> <!-- btn -->
+
+                </div>
+
+            </div><!-- post 7 div end-->
+
+
+
+            <!-- post 8-->
+            <div id="post8"
+                class="allPsts bg-amber-100 h-[300px] md:h-72  min-w-11/12 rounded-box mt-3  p-4 overflow-hidden">
+
+                <div class="flex place-content-between"> <!-- h1 & btn div -->
+                    <div>
+                        <h1 class="text-[18px] text-blue-900 font-bold ">TechCorp Industries</h1>
+                        <p class=" text-blue-950 ">Senior Frontend Developer</p>
+                    </div>
+
+                    <button onclick="dltTrs('post8')" class=" h-10 w-[38px] btn rounded-full">
+                        <i class="fa-solid fa-trash-can"></i></button> <!-- trash -->
+                </div>
+
+                <p class=" text-blue-950 mt-4">San Francisco, CA • Full-time • $130,000 - $175,000</p>
+
+                <div class="stts"> <!-- status btn    | -->
+                    <button id="normal-8"
+                        class="btn normal8 bg-blue-200 border border-black rounded-box  my-2 text-center ">
+                        NOT APPLIED </button>
+
+                    <button id="green-8"
+                        class="btn green8 text-emerald-600 my-2 border border-emerald-600 hidden">INTERVIEW</button>
+                    <button id="red-8" class="btn text-red-500 border  my-2 border-red-500 hidden">REJECTED</button>
+                </div>
+
+                <p class=" text-blue-950 line-clamp-2"> We are looking for an experienced Frontend Developer to build
+                    scalable web
+                    applications using React and TypeScript. You will work with a talented team on cutting-edge
+                    projects. </p>
+
+                <div class="flex gap-2.5 mt-3"> <!-- 'int-btn',  -->
+                    <button onclick="pstIBtnClk('int-btn8',8)" id="int-btn8"
+                        class="btn hover:bg-emerald-200 text-emerald-600 border border-emerald-600">INTERVIEW</button>
+                    <!-- btn -->
+
+                    <button onclick="pstRBtnClk('rjct-btn8',8)" id="rjct-btn8"
+                        class="btn hover:bg-red-200 text-red-500 border border-red-500">REJECTED</button> <!-- btn -->
+
+                </div>
+
+            </div><!-- post 8 div end-->
+
+
+        </div><!-- all job or ttl job end-->
+
+
+
+        <div id="no-data" class="mt-3  p-4 hidden"> <!--  no data -->
+            <div class="card bg-amber-100 min-w-11/12 h-[400px] pt-[50px]">
+
+                <figure class="px-10 pt-10">
+                    <img src="./img/jobs.png" alt="jobs.png" class="rounded-xl" />
+                </figure>
+
+                <div class="card-body items-center text-center">
+                    <h2 class="card-title text-xl text-blue-900 font-bold ">No jobs available</h2>
+                    <p class=" text-blue-950 text-[15px]"> Check back soon for new job opportunities</p>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- js link -->
+    <script src="./script.js"></script>
 </body>
+
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
 </html>
